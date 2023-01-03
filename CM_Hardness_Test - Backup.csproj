@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>CM_Hardness_Test</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net472</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>Preview</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Communication">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="DrawArea">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\DrawArea.dll</HintPath>
+    </Reference>
+    <Reference Include="Service">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\Service.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="Data">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MessageBoxExApp">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\MessageBoxExApp.dll</HintPath>
+    </Reference>
+    <Reference Include="Meterage">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\Meterage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word">
+      <HintPath>..\..\..\Originals\CMPL\Hardness\OneDrive_2022-08-23\SVHT 800 MA 1MDX\AIO_Client_20210303\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
+  </ItemGroup>
+</Project>
