@@ -1078,30 +1078,7 @@ namespace AIO_Client
 
 		private void tsmiCameraStart_Click(object sender, EventArgs e)
 		{
-            try
-            {
-                cameraService.Open(Program.CertifiedCameraIndex);
-                cameraService.AnalogGain = cameraInfo.AnalogGain;
-                cameraService.ExposureTime = cameraInfo.ExposureTime;
-                cameraService.ImageGrabbed += CameraService_ImageGrabbed;
-                if (cameraInfo.ShowCameraState)
-                {
-                    statusCamera.Visible = true;
-                    if (cameraInfo.ShowFrameRate)
-                    {
-                        System.Timers.Timer showFrameTimer = new System.Timers.Timer(1000.0);
-                        showFrameTimer.Elapsed += ShowFrameTimer_Elapsed;
-                        showFrameTimer.Enabled = true;
-                    }
-                }
-                SetCamera(toStart: true);
-            }
-            catch (Exception ex)
-            {
-                MsgBox.ShowWarning(ResourcesManager.Resources.R_Main_Message_FailedToLoadCamera);
-                Logger.Error(ex, "Camera failed to turn on！");
-                CameraStatus = ResourcesManager.Resources.R_Main_StatusCameraNotOpen;
-            }
+            SetCamera(toStart: true);
         }
 
 		private void tsmiCameraStop_Click(object sender, EventArgs e)
@@ -2366,7 +2343,8 @@ namespace AIO_Client
 
 		private void micrometerSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
-			string receivedData = micrometerSerialPort.ReadLine().Replace(" ", "").Replace("\r", "")
+            Logger.Info("Start recieveing Micrometer Data");
+            string receivedData = micrometerSerialPort.ReadLine().Replace(" ", "").Replace("\r", "")
 				.Replace("\n", "");
 			Console.WriteLine("Micrometer Received: {0}", receivedData);
 			float result = 0f;
@@ -2374,7 +2352,8 @@ namespace AIO_Client
 			{
 				MicrometerValue = result;
 			}
-			Console.WriteLine("float.TryParse(receivedData, out result): {0}, result: {1}", float.TryParse(receivedData, out result), result);
+            Logger.Info("float.TryParse(receivedData, out result): " + float.TryParse(receivedData, out result) + ", result: " + result);
+            Console.WriteLine("float.TryParse(receivedData, out result): {0}, result: {1}", float.TryParse(receivedData, out result), result);
 			Console.WriteLine();
 		}
 
@@ -3309,27 +3288,27 @@ namespace AIO_Client
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle113 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle114 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle115 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle116 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle117 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle118 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle119 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle120 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusSystem = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusCamera = new System.Windows.Forms.ToolStripStatusLabel();
@@ -4130,7 +4109,7 @@ namespace AIO_Client
             this.tpPatternList,
             this.tpStatistics,
             this.tpAlbum});
-            this.tcFuncArea.SelectedIndex = 0;
+            this.tcFuncArea.SelectedIndex = 1;
             this.tcFuncArea.Size = new System.Drawing.Size(524, 297);
             this.tcFuncArea.TabIndex = 234;
             this.tcFuncArea.Text = "kryptonNavigator1";
@@ -4385,7 +4364,7 @@ namespace AIO_Client
             this.tpXYZ.LastVisibleSet = true;
             this.tpXYZ.MinimumSize = new System.Drawing.Size(50, 50);
             this.tpXYZ.Name = "tpXYZ";
-            this.tpXYZ.Size = new System.Drawing.Size(522, 270);
+            this.tpXYZ.Size = new System.Drawing.Size(522, 266);
             this.tpXYZ.Text = "XYZ Platform Control";
             this.tpXYZ.ToolTipTitle = "Page ToolTip";
             this.tpXYZ.UniqueName = "9BC514354D944C314694FE3E32800DE7";
@@ -4406,7 +4385,7 @@ namespace AIO_Client
             this.tableLayoutPanel2.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(522, 270);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(522, 266);
             this.tableLayoutPanel2.TabIndex = 223;
             // 
             // gbZAxis
@@ -4425,7 +4404,7 @@ namespace AIO_Client
             this.gbZAxis.Panel.Controls.Add(this.btnZAxisLock);
             this.gbZAxis.Panel.Controls.Add(this.btnZAxisDownward);
             this.gbZAxis.Panel.Controls.Add(this.btnZAxisUpward);
-            this.gbZAxis.Size = new System.Drawing.Size(177, 264);
+            this.gbZAxis.Size = new System.Drawing.Size(177, 260);
             this.gbZAxis.TabIndex = 222;
             this.gbZAxis.Values.Heading = "Z";
             // 
@@ -4488,7 +4467,7 @@ namespace AIO_Client
             // gbPlatform.Panel
             // 
             this.gbPlatform.Panel.Controls.Add(this.tableLayoutPanel4);
-            this.gbPlatform.Size = new System.Drawing.Size(333, 264);
+            this.gbPlatform.Size = new System.Drawing.Size(333, 260);
             this.gbPlatform.TabIndex = 221;
             this.gbPlatform.Values.Heading = "X/Y";
             // 
@@ -4796,7 +4775,7 @@ namespace AIO_Client
             this.tpMultiPoints.LastVisibleSet = true;
             this.tpMultiPoints.MinimumSize = new System.Drawing.Size(50, 50);
             this.tpMultiPoints.Name = "tpMultiPoints";
-            this.tpMultiPoints.Size = new System.Drawing.Size(522, 270);
+            this.tpMultiPoints.Size = new System.Drawing.Size(522, 266);
             this.tpMultiPoints.Text = "Multipoint";
             this.tpMultiPoints.ToolTipTitle = "Page ToolTip";
             this.tpMultiPoints.UniqueName = "3157C598CE464F0B25B176D6C370914A";
@@ -4808,7 +4787,7 @@ namespace AIO_Client
             this.patternCircleExtension.Location = new System.Drawing.Point(0, 30);
             this.patternCircleExtension.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.patternCircleExtension.Name = "patternCircleExtension";
-            this.patternCircleExtension.Size = new System.Drawing.Size(522, 174);
+            this.patternCircleExtension.Size = new System.Drawing.Size(522, 170);
             this.patternCircleExtension.TabIndex = 226;
             // 
             // patternMatrix
@@ -4827,7 +4806,7 @@ namespace AIO_Client
             this.patternFree.Location = new System.Drawing.Point(0, 30);
             this.patternFree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.patternFree.Name = "patternFree";
-            this.patternFree.Size = new System.Drawing.Size(522, 174);
+            this.patternFree.Size = new System.Drawing.Size(522, 170);
             this.patternFree.TabIndex = 224;
             // 
             // patternHorizontal
@@ -4837,7 +4816,7 @@ namespace AIO_Client
             this.patternHorizontal.Location = new System.Drawing.Point(0, 30);
             this.patternHorizontal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.patternHorizontal.Name = "patternHorizontal";
-            this.patternHorizontal.Size = new System.Drawing.Size(522, 174);
+            this.patternHorizontal.Size = new System.Drawing.Size(522, 170);
             this.patternHorizontal.TabIndex = 225;
             // 
             // tableLayoutPanel5
@@ -4859,7 +4838,7 @@ namespace AIO_Client
             this.tableLayoutPanel5.Controls.Add(this.btnResetPattern, 4, 1);
             this.tableLayoutPanel5.Controls.Add(this.btnFinishMultiPointMode, 4, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 204);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 200);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -5032,7 +5011,7 @@ namespace AIO_Client
             this.patternSlash.Location = new System.Drawing.Point(0, 0);
             this.patternSlash.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.patternSlash.Name = "patternSlash";
-            this.patternSlash.Size = new System.Drawing.Size(522, 270);
+            this.patternSlash.Size = new System.Drawing.Size(522, 266);
             this.patternSlash.TabIndex = 221;
             // 
             // patternVertical
@@ -5042,7 +5021,7 @@ namespace AIO_Client
             this.patternVertical.Location = new System.Drawing.Point(0, 0);
             this.patternVertical.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.patternVertical.Name = "patternVertical";
-            this.patternVertical.Size = new System.Drawing.Size(522, 270);
+            this.patternVertical.Size = new System.Drawing.Size(522, 266);
             this.patternVertical.TabIndex = 220;
             // 
             // tpPatternList
@@ -5054,7 +5033,7 @@ namespace AIO_Client
             this.tpPatternList.LastVisibleSet = true;
             this.tpPatternList.MinimumSize = new System.Drawing.Size(50, 50);
             this.tpPatternList.Name = "tpPatternList";
-            this.tpPatternList.Size = new System.Drawing.Size(522, 270);
+            this.tpPatternList.Size = new System.Drawing.Size(522, 266);
             this.tpPatternList.Text = "Patten List";
             this.tpPatternList.ToolTipTitle = "Page ToolTip";
             this.tpPatternList.UniqueName = "58BEFE94BE0648D230BDC830A9F48A72";
@@ -5070,7 +5049,7 @@ namespace AIO_Client
             this.tableLayoutPanel1.Controls.Add(this.btnClearPatternSet, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDeletePatternSet, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 238);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 234);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -5112,8 +5091,8 @@ namespace AIO_Client
             this.dgvPatterns.Palette = this.kp1;
             this.dgvPatterns.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.dgvPatterns.RowHeadersWidth = 30;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPatterns.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle111.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPatterns.RowsDefaultCellStyle = dataGridViewCellStyle111;
             this.dgvPatterns.RowTemplate.Height = 23;
             this.dgvPatterns.Size = new System.Drawing.Size(522, 235);
             this.dgvPatterns.TabIndex = 204;
@@ -5123,7 +5102,7 @@ namespace AIO_Client
             // 
             this.dgvhPatternIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhPatternIndex.DataPropertyName = "Index";
-            this.dgvhPatternIndex.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvhPatternIndex.DefaultCellStyle = dataGridViewCellStyle106;
             this.dgvhPatternIndex.HeaderText = "#";
             this.dgvhPatternIndex.MinimumWidth = 6;
             this.dgvhPatternIndex.Name = "dgvhPatternIndex";
@@ -5133,7 +5112,7 @@ namespace AIO_Client
             // Identifier
             // 
             this.Identifier.DataPropertyName = "Identifier";
-            this.Identifier.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Identifier.DefaultCellStyle = dataGridViewCellStyle107;
             this.Identifier.HeaderText = "Column1";
             this.Identifier.MinimumWidth = 6;
             this.Identifier.Name = "Identifier";
@@ -5144,7 +5123,7 @@ namespace AIO_Client
             // 
             this.dgvhPatternName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgvhPatternName.DataPropertyName = "PatternName";
-            this.dgvhPatternName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvhPatternName.DefaultCellStyle = dataGridViewCellStyle108;
             this.dgvhPatternName.HeaderText = "Pattern Name";
             this.dgvhPatternName.MinimumWidth = 6;
             this.dgvhPatternName.Name = "dgvhPatternName";
@@ -5155,7 +5134,7 @@ namespace AIO_Client
             // 
             this.dgvhPatternPointsCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgvhPatternPointsCount.DataPropertyName = "PointCount";
-            this.dgvhPatternPointsCount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvhPatternPointsCount.DefaultCellStyle = dataGridViewCellStyle109;
             this.dgvhPatternPointsCount.HeaderText = "Point Count";
             this.dgvhPatternPointsCount.MinimumWidth = 6;
             this.dgvhPatternPointsCount.Name = "dgvhPatternPointsCount";
@@ -5166,9 +5145,9 @@ namespace AIO_Client
             // 
             this.dgvhPatternSelected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgvhPatternSelected.DataPropertyName = "Checked";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.NullValue = false;
-            this.dgvhPatternSelected.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle110.NullValue = false;
+            this.dgvhPatternSelected.DefaultCellStyle = dataGridViewCellStyle110;
             this.dgvhPatternSelected.FalseValue = false;
             this.dgvhPatternSelected.HeaderText = "Checked";
             this.dgvhPatternSelected.IndeterminateValue = false;
@@ -5199,7 +5178,7 @@ namespace AIO_Client
             this.tpStatistics.LastVisibleSet = true;
             this.tpStatistics.MinimumSize = new System.Drawing.Size(50, 50);
             this.tpStatistics.Name = "tpStatistics";
-            this.tpStatistics.Size = new System.Drawing.Size(522, 270);
+            this.tpStatistics.Size = new System.Drawing.Size(522, 266);
             this.tpStatistics.Text = "Statistics";
             this.tpStatistics.ToolTipTitle = "Page ToolTip";
             this.tpStatistics.UniqueName = "A8DF5AC9154F42C32B807251A97C7995";
@@ -5422,7 +5401,9 @@ namespace AIO_Client
             this.lbConvertValue.Palette = this.kp1;
             this.lbConvertValue.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.lbConvertValue.Size = new System.Drawing.Size(48, 24);
+            this.lbConvertValue.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbConvertValue.TabIndex = 164;
+            this.lbConvertValue.Values.Text = "-";
             // 
             // btnStatistics
             // 
@@ -5457,7 +5438,9 @@ namespace AIO_Client
             this.lbHardnessValue.Palette = this.kp1;
             this.lbHardnessValue.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.lbHardnessValue.Size = new System.Drawing.Size(48, 24);
+            this.lbHardnessValue.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHardnessValue.TabIndex = 169;
+            this.lbHardnessValue.Values.Text = "-";
             // 
             // lbMicrometerValue
             // 
@@ -5467,6 +5450,7 @@ namespace AIO_Client
             this.lbMicrometerValue.Palette = this.kp1;
             this.lbMicrometerValue.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.lbMicrometerValue.Size = new System.Drawing.Size(20, 24);
+            this.lbMicrometerValue.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMicrometerValue.TabIndex = 209;
             this.lbMicrometerValue.Values.Text = "0";
             this.lbMicrometerValue.Visible = false;
@@ -5507,7 +5491,7 @@ namespace AIO_Client
             // 
             this.dgvhRecordIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordIndex.DataPropertyName = "Index";
-            this.dgvhRecordIndex.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvhRecordIndex.DefaultCellStyle = dataGridViewCellStyle112;
             this.dgvhRecordIndex.HeaderText = "#";
             this.dgvhRecordIndex.MinimumWidth = 6;
             this.dgvhRecordIndex.Name = "dgvhRecordIndex";
@@ -5518,9 +5502,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordXPos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordXPos.DataPropertyName = "XPos";
-            dataGridViewCellStyle8.Format = "N4";
-            dataGridViewCellStyle8.NullValue = null;
-            this.dgvhRecordXPos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle113.Format = "N4";
+            dataGridViewCellStyle113.NullValue = null;
+            this.dgvhRecordXPos.DefaultCellStyle = dataGridViewCellStyle113;
             this.dgvhRecordXPos.HeaderText = "X(mm)";
             this.dgvhRecordXPos.MinimumWidth = 6;
             this.dgvhRecordXPos.Name = "dgvhRecordXPos";
@@ -5531,9 +5515,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordYPos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordYPos.DataPropertyName = "YPos";
-            dataGridViewCellStyle9.Format = "N4";
-            dataGridViewCellStyle9.NullValue = null;
-            this.dgvhRecordYPos.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle114.Format = "N4";
+            dataGridViewCellStyle114.NullValue = null;
+            this.dgvhRecordYPos.DefaultCellStyle = dataGridViewCellStyle114;
             this.dgvhRecordYPos.HeaderText = "Y(mm)";
             this.dgvhRecordYPos.MinimumWidth = 6;
             this.dgvhRecordYPos.Name = "dgvhRecordYPos";
@@ -5556,9 +5540,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordHardness.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordHardness.DataPropertyName = "Hardness";
-            dataGridViewCellStyle10.Format = "N1";
-            dataGridViewCellStyle10.NullValue = null;
-            this.dgvhRecordHardness.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle115.Format = "N1";
+            dataGridViewCellStyle115.NullValue = null;
+            this.dgvhRecordHardness.DefaultCellStyle = dataGridViewCellStyle115;
             this.dgvhRecordHardness.HeaderText = "Hardness";
             this.dgvhRecordHardness.MinimumWidth = 6;
             this.dgvhRecordHardness.Name = "dgvhRecordHardness";
@@ -5569,7 +5553,7 @@ namespace AIO_Client
             // 
             this.dgvhRecordHardnessType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordHardnessType.DataPropertyName = "HardnessType";
-            this.dgvhRecordHardnessType.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvhRecordHardnessType.DefaultCellStyle = dataGridViewCellStyle116;
             this.dgvhRecordHardnessType.HeaderText = "Hardness Type";
             this.dgvhRecordHardnessType.MinimumWidth = 6;
             this.dgvhRecordHardnessType.Name = "dgvhRecordHardnessType";
@@ -5580,7 +5564,7 @@ namespace AIO_Client
             // 
             this.dgvhRecordQualified.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordQualified.DataPropertyName = "Qualified";
-            this.dgvhRecordQualified.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvhRecordQualified.DefaultCellStyle = dataGridViewCellStyle117;
             this.dgvhRecordQualified.HeaderText = "Qualified";
             this.dgvhRecordQualified.MinimumWidth = 6;
             this.dgvhRecordQualified.Name = "dgvhRecordQualified";
@@ -5591,9 +5575,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordD1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordD1.DataPropertyName = "D1";
-            dataGridViewCellStyle13.Format = "N3";
-            dataGridViewCellStyle13.NullValue = null;
-            this.dgvhRecordD1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle118.Format = "N3";
+            dataGridViewCellStyle118.NullValue = null;
+            this.dgvhRecordD1.DefaultCellStyle = dataGridViewCellStyle118;
             this.dgvhRecordD1.HeaderText = "D1(um)";
             this.dgvhRecordD1.MinimumWidth = 6;
             this.dgvhRecordD1.Name = "dgvhRecordD1";
@@ -5604,8 +5588,8 @@ namespace AIO_Client
             // 
             this.dgvhRecordD2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordD2.DataPropertyName = "D2";
-            dataGridViewCellStyle14.Format = "N3";
-            this.dgvhRecordD2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle119.Format = "N3";
+            this.dgvhRecordD2.DefaultCellStyle = dataGridViewCellStyle119;
             this.dgvhRecordD2.HeaderText = "D2(um)";
             this.dgvhRecordD2.MinimumWidth = 6;
             this.dgvhRecordD2.Name = "dgvhRecordD2";
@@ -5616,8 +5600,8 @@ namespace AIO_Client
             // 
             this.dgvhRecordDavg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordDavg.DataPropertyName = "DAvg";
-            dataGridViewCellStyle15.Format = "N3";
-            this.dgvhRecordDavg.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle120.Format = "N3";
+            this.dgvhRecordDavg.DefaultCellStyle = dataGridViewCellStyle120;
             this.dgvhRecordDavg.HeaderText = "Davg(um)";
             this.dgvhRecordDavg.MinimumWidth = 6;
             this.dgvhRecordDavg.Name = "dgvhRecordDavg";
@@ -5628,7 +5612,7 @@ namespace AIO_Client
             // 
             this.dgvhRecordConvertType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordConvertType.DataPropertyName = "ConvertType";
-            this.dgvhRecordConvertType.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvhRecordConvertType.DefaultCellStyle = dataGridViewCellStyle121;
             this.dgvhRecordConvertType.HeaderText = "Convert Type";
             this.dgvhRecordConvertType.MinimumWidth = 6;
             this.dgvhRecordConvertType.Name = "dgvhRecordConvertType";
@@ -5639,9 +5623,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordConvertValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordConvertValue.DataPropertyName = "ConvertValue";
-            dataGridViewCellStyle17.Format = "N1";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dgvhRecordConvertValue.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle122.Format = "N1";
+            dataGridViewCellStyle122.NullValue = null;
+            this.dgvhRecordConvertValue.DefaultCellStyle = dataGridViewCellStyle122;
             this.dgvhRecordConvertValue.HeaderText = "Convert Value";
             this.dgvhRecordConvertValue.MinimumWidth = 6;
             this.dgvhRecordConvertValue.Name = "dgvhRecordConvertValue";
@@ -5652,9 +5636,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordDepth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordDepth.DataPropertyName = "Depth";
-            dataGridViewCellStyle18.Format = "N3";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dgvhRecordDepth.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle123.Format = "N3";
+            dataGridViewCellStyle123.NullValue = null;
+            this.dgvhRecordDepth.DefaultCellStyle = dataGridViewCellStyle123;
             this.dgvhRecordDepth.HeaderText = "Depth";
             this.dgvhRecordDepth.MinimumWidth = 6;
             this.dgvhRecordDepth.Name = "dgvhRecordDepth";
@@ -5664,9 +5648,9 @@ namespace AIO_Client
             // 
             this.dgvhRecordMeasureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvhRecordMeasureTime.DataPropertyName = "MeasureTime";
-            dataGridViewCellStyle19.Format = "T";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dgvhRecordMeasureTime.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle124.Format = "T";
+            dataGridViewCellStyle124.NullValue = null;
+            this.dgvhRecordMeasureTime.DefaultCellStyle = dataGridViewCellStyle124;
             this.dgvhRecordMeasureTime.HeaderText = "Measure Time";
             this.dgvhRecordMeasureTime.MinimumWidth = 6;
             this.dgvhRecordMeasureTime.Name = "dgvhRecordMeasureTime";
@@ -5676,7 +5660,7 @@ namespace AIO_Client
             // dgvhOriginalImagePath
             // 
             this.dgvhOriginalImagePath.DataPropertyName = "OriginalImagePath";
-            this.dgvhOriginalImagePath.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvhOriginalImagePath.DefaultCellStyle = dataGridViewCellStyle125;
             this.dgvhOriginalImagePath.HeaderText = "OriginalImagePath";
             this.dgvhOriginalImagePath.MinimumWidth = 6;
             this.dgvhOriginalImagePath.Name = "dgvhOriginalImagePath";
@@ -5686,7 +5670,7 @@ namespace AIO_Client
             // dgvhRecordImagePath
             // 
             this.dgvhRecordImagePath.DataPropertyName = "MeasuredImagePath";
-            this.dgvhRecordImagePath.DefaultCellStyle = dataGridViewCellStyle21;
+            this.dgvhRecordImagePath.DefaultCellStyle = dataGridViewCellStyle126;
             this.dgvhRecordImagePath.HeaderText = "MeasuredImagePath";
             this.dgvhRecordImagePath.MinimumWidth = 6;
             this.dgvhRecordImagePath.Name = "dgvhRecordImagePath";
@@ -5799,7 +5783,7 @@ namespace AIO_Client
             this.krtab_Config,
             this.kryptonRibbonTab1});
             this.kribbon_Main.SelectedContext = null;
-            this.kribbon_Main.SelectedTab = this.krtab_Device;
+            this.kribbon_Main.SelectedTab = this.krtab_File;
             this.kribbon_Main.ShowMinimizeButton = false;
             this.kribbon_Main.Size = new System.Drawing.Size(1339, 165);
             this.kribbon_Main.TabIndex = 233;
@@ -5944,6 +5928,7 @@ namespace AIO_Client
             // 
             // kryptonRibbonGroup1
             // 
+            this.kryptonRibbonGroup1.AllowCollapsed = false;
             this.kryptonRibbonGroup1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple1});
             // 
@@ -5955,15 +5940,13 @@ namespace AIO_Client
             // 
             // tsmiCameraStart
             // 
-            this.tsmiCameraStart.TextLine1 = "Open";
-            this.tsmiCameraStart.TextLine2 = "Camera";
+            this.tsmiCameraStart.TextLine1 = "Play Camera";
             this.tsmiCameraStart.Click += new System.EventHandler(this.tsmiCameraStart_Click);
             // 
             // tsmiCameraStop
             // 
             this.tsmiCameraStop.Enabled = false;
-            this.tsmiCameraStop.TextLine1 = "Close";
-            this.tsmiCameraStop.TextLine2 = "Camera";
+            this.tsmiCameraStop.TextLine1 = "Pause Camera";
             this.tsmiCameraStop.Click += new System.EventHandler(this.tsmiCameraStop_Click);
             // 
             // krtab_Data

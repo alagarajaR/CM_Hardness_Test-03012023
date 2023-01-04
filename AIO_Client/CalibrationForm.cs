@@ -579,6 +579,7 @@ namespace AIO_Client
 		{
             this.components = new System.ComponentModel.Container();
             this.gbAddCalibration = new Krypton.Toolkit.KryptonGroupBox();
+            this.kp1 = new Krypton.Toolkit.KryptonPalette(this.components);
             this.buildCalibTab = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.tpHardnessCalibration = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.cbHHardnessLevel = new Krypton.Toolkit.KryptonComboBox();
@@ -628,7 +629,6 @@ namespace AIO_Client
             this.dgvhHardnessLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvhXPixelLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvhYPixelLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kp1 = new Krypton.Toolkit.KryptonPalette(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gbAddCalibration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbAddCalibration.Panel)).BeginInit();
             this.gbAddCalibration.Panel.SuspendLayout();
@@ -678,8 +678,8 @@ namespace AIO_Client
             this.buildCalibTab.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.tpHardnessCalibration,
             this.tpLengthCalibration});
-            this.buildCalibTab.SelectedIndex = 0;
-            this.buildCalibTab.Size = new System.Drawing.Size(511, 345);
+            this.buildCalibTab.SelectedIndex = 1;
+            this.buildCalibTab.Size = new System.Drawing.Size(511, 341);
             this.buildCalibTab.TabIndex = 44;
             this.buildCalibTab.Text = "kryptonNavigator1";
             // 
@@ -706,7 +706,7 @@ namespace AIO_Client
             this.tpHardnessCalibration.LastVisibleSet = true;
             this.tpHardnessCalibration.MinimumSize = new System.Drawing.Size(50, 50);
             this.tpHardnessCalibration.Name = "tpHardnessCalibration";
-            this.tpHardnessCalibration.Size = new System.Drawing.Size(509, 318);
+            this.tpHardnessCalibration.Size = new System.Drawing.Size(509, 310);
             this.tpHardnessCalibration.Text = "Hardness Calibration";
             this.tpHardnessCalibration.ToolTipTitle = "Page ToolTip";
             this.tpHardnessCalibration.UniqueName = "FA01BA7CC73649C374A160B0A497B996";
@@ -728,7 +728,7 @@ namespace AIO_Client
             this.cbHHardnessLevel.Name = "cbHHardnessLevel";
             this.cbHHardnessLevel.Palette = this.kp1;
             this.cbHHardnessLevel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.cbHHardnessLevel.Size = new System.Drawing.Size(178, 21);
+            this.cbHHardnessLevel.Size = new System.Drawing.Size(178, 25);
             this.cbHHardnessLevel.TabIndex = 39;
             // 
             // lbHZoomTime
@@ -739,7 +739,7 @@ namespace AIO_Client
             this.lbHZoomTime.Name = "lbHZoomTime";
             this.lbHZoomTime.Palette = this.kp1;
             this.lbHZoomTime.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbHZoomTime.Size = new System.Drawing.Size(73, 20);
+            this.lbHZoomTime.Size = new System.Drawing.Size(89, 24);
             this.lbHZoomTime.TabIndex = 14;
             this.lbHZoomTime.Values.Text = "Zoom Time";
             // 
@@ -751,7 +751,7 @@ namespace AIO_Client
             this.lbHHardnessLevel.Name = "lbHHardnessLevel";
             this.lbHHardnessLevel.Palette = this.kp1;
             this.lbHHardnessLevel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbHHardnessLevel.Size = new System.Drawing.Size(92, 20);
+            this.lbHHardnessLevel.Size = new System.Drawing.Size(114, 24);
             this.lbHHardnessLevel.TabIndex = 38;
             this.lbHHardnessLevel.Values.Text = "Hardness Level";
             // 
@@ -774,7 +774,7 @@ namespace AIO_Client
             this.cbHZoomTime.Name = "cbHZoomTime";
             this.cbHZoomTime.Palette = this.kp1;
             this.cbHZoomTime.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.cbHZoomTime.Size = new System.Drawing.Size(178, 21);
+            this.cbHZoomTime.Size = new System.Drawing.Size(178, 25);
             this.cbHZoomTime.TabIndex = 15;
             // 
             // cbHForce
@@ -814,7 +814,7 @@ namespace AIO_Client
             this.cbHForce.Name = "cbHForce";
             this.cbHForce.Palette = this.kp1;
             this.cbHForce.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.cbHForce.Size = new System.Drawing.Size(178, 21);
+            this.cbHForce.Size = new System.Drawing.Size(178, 25);
             this.cbHForce.TabIndex = 37;
             // 
             // lbHPixelLegnth
@@ -825,7 +825,7 @@ namespace AIO_Client
             this.lbHPixelLegnth.Name = "lbHPixelLegnth";
             this.lbHPixelLegnth.Palette = this.kp1;
             this.lbHPixelLegnth.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbHPixelLegnth.Size = new System.Drawing.Size(77, 20);
+            this.lbHPixelLegnth.Size = new System.Drawing.Size(94, 24);
             this.lbHPixelLegnth.TabIndex = 16;
             this.lbHPixelLegnth.Values.Text = "Pixel Length";
             // 
@@ -837,7 +837,7 @@ namespace AIO_Client
             this.lbHForce.Name = "lbHForce";
             this.lbHForce.Palette = this.kp1;
             this.lbHForce.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbHForce.Size = new System.Drawing.Size(40, 20);
+            this.lbHForce.Size = new System.Drawing.Size(49, 24);
             this.lbHForce.TabIndex = 36;
             this.lbHForce.Values.Text = "Force";
             // 
@@ -849,7 +849,7 @@ namespace AIO_Client
             this.label7.Name = "label7";
             this.label7.Palette = this.kp1;
             this.label7.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.label7.Size = new System.Drawing.Size(18, 20);
+            this.label7.Size = new System.Drawing.Size(21, 24);
             this.label7.TabIndex = 23;
             this.label7.Values.Text = "X";
             // 
@@ -861,7 +861,7 @@ namespace AIO_Client
             this.tbHardnessValue.Name = "tbHardnessValue";
             this.tbHardnessValue.Palette = this.kp1;
             this.tbHardnessValue.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.tbHardnessValue.Size = new System.Drawing.Size(178, 23);
+            this.tbHardnessValue.Size = new System.Drawing.Size(178, 27);
             this.tbHardnessValue.TabIndex = 35;
             // 
             // label6
@@ -872,7 +872,7 @@ namespace AIO_Client
             this.label6.Name = "label6";
             this.label6.Palette = this.kp1;
             this.label6.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.label6.Size = new System.Drawing.Size(17, 20);
+            this.label6.Size = new System.Drawing.Size(20, 24);
             this.label6.TabIndex = 24;
             this.label6.Values.Text = "Y";
             // 
@@ -885,7 +885,7 @@ namespace AIO_Client
             this.tbHYPixel.Palette = this.kp1;
             this.tbHYPixel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tbHYPixel.ReadOnly = true;
-            this.tbHYPixel.Size = new System.Drawing.Size(50, 23);
+            this.tbHYPixel.Size = new System.Drawing.Size(50, 27);
             this.tbHYPixel.TabIndex = 34;
             // 
             // btnAddHardnessCalib
@@ -910,7 +910,7 @@ namespace AIO_Client
             this.tbHXPixel.Palette = this.kp1;
             this.tbHXPixel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tbHXPixel.ReadOnly = true;
-            this.tbHXPixel.Size = new System.Drawing.Size(50, 23);
+            this.tbHXPixel.Size = new System.Drawing.Size(50, 27);
             this.tbHXPixel.TabIndex = 33;
             // 
             // lbHHardness
@@ -921,7 +921,7 @@ namespace AIO_Client
             this.lbHHardness.Name = "lbHHardness";
             this.lbHHardness.Palette = this.kp1;
             this.lbHHardness.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbHHardness.Size = new System.Drawing.Size(61, 20);
+            this.lbHHardness.Size = new System.Drawing.Size(75, 24);
             this.lbHHardness.TabIndex = 29;
             this.lbHHardness.Values.Text = "Hardness";
             // 
@@ -977,7 +977,7 @@ namespace AIO_Client
             this.tpLengthCalibration.LastVisibleSet = true;
             this.tpLengthCalibration.MinimumSize = new System.Drawing.Size(50, 50);
             this.tpLengthCalibration.Name = "tpLengthCalibration";
-            this.tpLengthCalibration.Size = new System.Drawing.Size(509, 318);
+            this.tpLengthCalibration.Size = new System.Drawing.Size(509, 310);
             this.tpLengthCalibration.Text = "Length Calibration";
             this.tpLengthCalibration.ToolTipTitle = "Page ToolTip";
             this.tpLengthCalibration.UniqueName = "0D3566BDBD3E4068DBA2646848AE19F3";
@@ -999,7 +999,7 @@ namespace AIO_Client
             this.cbLHardnessLevel.Name = "cbLHardnessLevel";
             this.cbLHardnessLevel.Palette = this.kp1;
             this.cbLHardnessLevel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.cbLHardnessLevel.Size = new System.Drawing.Size(198, 21);
+            this.cbLHardnessLevel.Size = new System.Drawing.Size(198, 25);
             this.cbLHardnessLevel.TabIndex = 43;
             // 
             // rbLinearCalib
@@ -1011,7 +1011,7 @@ namespace AIO_Client
             this.rbLinearCalib.Name = "rbLinearCalib";
             this.rbLinearCalib.Palette = this.kp1;
             this.rbLinearCalib.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.rbLinearCalib.Size = new System.Drawing.Size(118, 20);
+            this.rbLinearCalib.Size = new System.Drawing.Size(143, 24);
             this.rbLinearCalib.TabIndex = 25;
             this.rbLinearCalib.Values.Text = "Linear Calibration";
             this.rbLinearCalib.CheckedChanged += new System.EventHandler(this.rbLinearCalib_CheckedChanged);
@@ -1024,7 +1024,7 @@ namespace AIO_Client
             this.lbLHardnessLevel.Name = "lbLHardnessLevel";
             this.lbLHardnessLevel.Palette = this.kp1;
             this.lbLHardnessLevel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbLHardnessLevel.Size = new System.Drawing.Size(92, 20);
+            this.lbLHardnessLevel.Size = new System.Drawing.Size(114, 24);
             this.lbLHardnessLevel.TabIndex = 42;
             this.lbLHardnessLevel.Values.Text = "Hardness Level";
             // 
@@ -1036,7 +1036,7 @@ namespace AIO_Client
             this.lbLZoomTime.Name = "lbLZoomTime";
             this.lbLZoomTime.Palette = this.kp1;
             this.lbLZoomTime.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbLZoomTime.Size = new System.Drawing.Size(73, 20);
+            this.lbLZoomTime.Size = new System.Drawing.Size(89, 24);
             this.lbLZoomTime.TabIndex = 14;
             this.lbLZoomTime.Values.Text = "Zoom Time";
             // 
@@ -1077,7 +1077,7 @@ namespace AIO_Client
             this.cbLForce.Name = "cbLForce";
             this.cbLForce.Palette = this.kp1;
             this.cbLForce.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.cbLForce.Size = new System.Drawing.Size(198, 21);
+            this.cbLForce.Size = new System.Drawing.Size(198, 25);
             this.cbLForce.TabIndex = 41;
             // 
             // cbLZoomTime
@@ -1098,7 +1098,7 @@ namespace AIO_Client
             this.cbLZoomTime.Name = "cbLZoomTime";
             this.cbLZoomTime.Palette = this.kp1;
             this.cbLZoomTime.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.cbLZoomTime.Size = new System.Drawing.Size(198, 21);
+            this.cbLZoomTime.Size = new System.Drawing.Size(198, 25);
             this.cbLZoomTime.TabIndex = 15;
             // 
             // lbLForce
@@ -1109,7 +1109,7 @@ namespace AIO_Client
             this.lbLForce.Name = "lbLForce";
             this.lbLForce.Palette = this.kp1;
             this.lbLForce.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbLForce.Size = new System.Drawing.Size(40, 20);
+            this.lbLForce.Size = new System.Drawing.Size(49, 24);
             this.lbLForce.TabIndex = 40;
             this.lbLForce.Values.Text = "Force";
             // 
@@ -1121,7 +1121,7 @@ namespace AIO_Client
             this.lbLPixelLength.Name = "lbLPixelLength";
             this.lbLPixelLength.Palette = this.kp1;
             this.lbLPixelLength.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbLPixelLength.Size = new System.Drawing.Size(77, 20);
+            this.lbLPixelLength.Size = new System.Drawing.Size(94, 24);
             this.lbLPixelLength.TabIndex = 16;
             this.lbLPixelLength.Values.Text = "Pixel Length";
             // 
@@ -1133,7 +1133,7 @@ namespace AIO_Client
             this.label13.Name = "label13";
             this.label13.Palette = this.kp1;
             this.label13.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.label13.Size = new System.Drawing.Size(28, 20);
+            this.label13.Size = new System.Drawing.Size(34, 24);
             this.label13.TabIndex = 32;
             this.label13.Values.Text = "μm";
             // 
@@ -1145,7 +1145,7 @@ namespace AIO_Client
             this.lbLRealDistance.Name = "lbLRealDistance";
             this.lbLRealDistance.Palette = this.kp1;
             this.lbLRealDistance.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.lbLRealDistance.Size = new System.Drawing.Size(84, 20);
+            this.lbLRealDistance.Size = new System.Drawing.Size(103, 24);
             this.lbLRealDistance.TabIndex = 19;
             this.lbLRealDistance.Values.Text = "Real Distance";
             // 
@@ -1157,7 +1157,7 @@ namespace AIO_Client
             this.label12.Name = "label12";
             this.label12.Palette = this.kp1;
             this.label12.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.label12.Size = new System.Drawing.Size(28, 20);
+            this.label12.Size = new System.Drawing.Size(34, 24);
             this.label12.TabIndex = 31;
             this.label12.Values.Text = "μm";
             // 
@@ -1169,7 +1169,7 @@ namespace AIO_Client
             this.label4.Name = "label4";
             this.label4.Palette = this.kp1;
             this.label4.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.Size = new System.Drawing.Size(21, 24);
             this.label4.TabIndex = 23;
             this.label4.Values.Text = "X";
             // 
@@ -1182,7 +1182,7 @@ namespace AIO_Client
             this.tbLYDistance.Name = "tbLYDistance";
             this.tbLYDistance.Palette = this.kp1;
             this.tbLYDistance.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.tbLYDistance.Size = new System.Drawing.Size(50, 23);
+            this.tbLYDistance.Size = new System.Drawing.Size(50, 27);
             this.tbLYDistance.TabIndex = 30;
             // 
             // label5
@@ -1193,7 +1193,7 @@ namespace AIO_Client
             this.label5.Name = "label5";
             this.label5.Palette = this.kp1;
             this.label5.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.label5.Size = new System.Drawing.Size(17, 20);
+            this.label5.Size = new System.Drawing.Size(20, 24);
             this.label5.TabIndex = 24;
             this.label5.Values.Text = "Y";
             // 
@@ -1205,7 +1205,7 @@ namespace AIO_Client
             this.tbLXDistance.Name = "tbLXDistance";
             this.tbLXDistance.Palette = this.kp1;
             this.tbLXDistance.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.tbLXDistance.Size = new System.Drawing.Size(50, 23);
+            this.tbLXDistance.Size = new System.Drawing.Size(50, 27);
             this.tbLXDistance.TabIndex = 29;
             // 
             // btnAddLengthCalib
@@ -1231,7 +1231,7 @@ namespace AIO_Client
             this.tbLYPixel.Palette = this.kp1;
             this.tbLYPixel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tbLYPixel.ReadOnly = true;
-            this.tbLYPixel.Size = new System.Drawing.Size(50, 23);
+            this.tbLYPixel.Size = new System.Drawing.Size(50, 27);
             this.tbLYPixel.TabIndex = 28;
             // 
             // rbPlaneCalib
@@ -1242,7 +1242,7 @@ namespace AIO_Client
             this.rbPlaneCalib.Name = "rbPlaneCalib";
             this.rbPlaneCalib.Palette = this.kp1;
             this.rbPlaneCalib.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.rbPlaneCalib.Size = new System.Drawing.Size(115, 20);
+            this.rbPlaneCalib.Size = new System.Drawing.Size(139, 24);
             this.rbPlaneCalib.TabIndex = 26;
             this.rbPlaneCalib.Values.Text = "Plane Calibration";
             this.rbPlaneCalib.CheckedChanged += new System.EventHandler(this.rbPlaneCalib_CheckedChanged);
@@ -1256,7 +1256,7 @@ namespace AIO_Client
             this.tbLXPixel.Palette = this.kp1;
             this.tbLXPixel.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tbLXPixel.ReadOnly = true;
-            this.tbLXPixel.Size = new System.Drawing.Size(50, 23);
+            this.tbLXPixel.Size = new System.Drawing.Size(50, 27);
             this.tbLXPixel.TabIndex = 27;
             // 
             // btnDelete
@@ -1313,6 +1313,7 @@ namespace AIO_Client
             // 
             // dgvCalibrations
             // 
+            this.dgvCalibrations.ColumnHeadersHeight = 36;
             this.dgvCalibrations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvhIndex,
             this.dgvhZoomTime,
@@ -1325,6 +1326,7 @@ namespace AIO_Client
             this.dgvCalibrations.Name = "dgvCalibrations";
             this.dgvCalibrations.Palette = this.kp1;
             this.dgvCalibrations.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.dgvCalibrations.RowHeadersWidth = 51;
             this.dgvCalibrations.Size = new System.Drawing.Size(515, 202);
             this.dgvCalibrations.TabIndex = 44;
             // 
@@ -1332,6 +1334,7 @@ namespace AIO_Client
             // 
             this.dgvhIndex.DataPropertyName = "Index";
             this.dgvhIndex.HeaderText = "#";
+            this.dgvhIndex.MinimumWidth = 6;
             this.dgvhIndex.Name = "dgvhIndex";
             this.dgvhIndex.ReadOnly = true;
             this.dgvhIndex.Width = 50;
@@ -1340,6 +1343,7 @@ namespace AIO_Client
             // 
             this.dgvhZoomTime.DataPropertyName = "ZoomTime";
             this.dgvhZoomTime.HeaderText = "Zoom Time";
+            this.dgvhZoomTime.MinimumWidth = 6;
             this.dgvhZoomTime.Name = "dgvhZoomTime";
             this.dgvhZoomTime.ReadOnly = true;
             this.dgvhZoomTime.Width = 80;
@@ -1348,6 +1352,7 @@ namespace AIO_Client
             // 
             this.dgvhForce.DataPropertyName = "Force";
             this.dgvhForce.HeaderText = "Force";
+            this.dgvhForce.MinimumWidth = 6;
             this.dgvhForce.Name = "dgvhForce";
             this.dgvhForce.ReadOnly = true;
             this.dgvhForce.Width = 80;
@@ -1356,6 +1361,7 @@ namespace AIO_Client
             // 
             this.dgvhHardnessLevel.DataPropertyName = "HardnessLevel";
             this.dgvhHardnessLevel.HeaderText = "Hardness Level";
+            this.dgvhHardnessLevel.MinimumWidth = 6;
             this.dgvhHardnessLevel.Name = "dgvhHardnessLevel";
             this.dgvhHardnessLevel.ReadOnly = true;
             this.dgvhHardnessLevel.Width = 80;
@@ -1364,19 +1370,23 @@ namespace AIO_Client
             // 
             this.dgvhXPixelLength.DataPropertyName = "XPixelLength";
             this.dgvhXPixelLength.HeaderText = "X Pixel Length(μm/px)";
+            this.dgvhXPixelLength.MinimumWidth = 6;
             this.dgvhXPixelLength.Name = "dgvhXPixelLength";
             this.dgvhXPixelLength.ReadOnly = true;
+            this.dgvhXPixelLength.Width = 125;
             // 
             // dgvhYPixelLength
             // 
             this.dgvhYPixelLength.DataPropertyName = "YPixelLength";
             this.dgvhYPixelLength.HeaderText = "Y Pixel Length(μm/px)";
+            this.dgvhYPixelLength.MinimumWidth = 6;
             this.dgvhYPixelLength.Name = "dgvhYPixelLength";
             this.dgvhYPixelLength.ReadOnly = true;
+            this.dgvhYPixelLength.Width = 125;
             // 
             // CalibrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 657);
             this.Controls.Add(this.dgvCalibrations);
